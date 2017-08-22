@@ -1,24 +1,132 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mechanization.ttf">
+            <string>Mechanization</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Bezier" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YOP-Dl-rlp"/>
+                        <viewControllerLayoutGuide type="bottom" id="UL9-a7-egj"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="DZg-KE-CFD">
+                                <rect key="frame" x="37" y="40" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ODw-Hh-aMb"/>
+                                    <constraint firstAttribute="width" secondItem="DZg-KE-CFD" secondAttribute="height" multiplier="1:1" id="gx1-P2-bdE"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ANGLE" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgM-D3-6bd">
+                                <rect key="frame" x="139" y="376" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LgM-D3-6bd" secondAttribute="height" multiplier="97:30" id="LNR-Ah-30C"/>
+                                    <constraint firstAttribute="width" constant="97" id="QSr-pq-7gc"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="F5b-My-ZS7"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ev-vb-Jhi">
+                                <rect key="frame" x="139" y="493" width="97" height="30"/>
+                                <color key="backgroundColor" red="0.76557033890000004" green="0.85361697380000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="2hf-oW-vfU"/>
+                                    <constraint firstAttribute="width" secondItem="0ev-vb-Jhi" secondAttribute="height" multiplier="97:30" id="Z2o-Cd-qBt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Mechanization" family="Mechanization" pointSize="17"/>
+                                <color key="tintColor" red="0.070393928770000003" green="0.143626741" blue="0.48419471149999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ANIMATE"/>
+                                <connections>
+                                    <action selector="animate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hdR-8S-ZEu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mye-cb-Co5">
+                                <rect key="frame" x="211" y="422" width="126" height="29"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.52941176470588236" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mye-cb-Co5" secondAttribute="height" multiplier="127:30" constant="2.7333333333333343" id="jMw-tq-MTA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Mechanization" family="Mechanization" pointSize="17"/>
+                                <state key="normal" title="HIDE KEYBOARD">
+                                    <color key="titleColor" red="0.51640427112579346" green="0.087836243212223053" blue="0.37513166666030884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ul-Ab-n4h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Djj-yj-W9o">
+                                <rect key="frame" x="37" y="422" width="126" height="29"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.52941176469999995" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Djj-yj-W9o" secondAttribute="height" multiplier="13:3" id="Hx3-dn-bRr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Mechanization" family="Mechanization" pointSize="17"/>
+                                <state key="normal" title="RANDOM ANGLE">
+                                    <color key="titleColor" red="0.51640427112579346" green="0.087836243212223053" blue="0.37513166666030884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="randomAngle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tJG-Cx-Oe8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEZIER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hP5-fH-2lP">
+                                <rect key="frame" x="102" y="555" width="171" height="78"/>
+                                <color key="tintColor" red="0.070393928770000003" green="0.143626741" blue="0.48419471149999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hP5-fH-2lP" secondAttribute="height" multiplier="57:26" id="H8T-mE-9yS"/>
+                                    <constraint firstAttribute="width" constant="171" id="fgm-uf-rtm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Mechanization" family="Mechanization" pointSize="58"/>
+                                <color key="textColor" red="0.070393928770000003" green="0.143626741" blue="0.48419471149999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hP5-fH-2lP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0XO-Jb-6nP"/>
+                            <constraint firstItem="hP5-fH-2lP" firstAttribute="top" secondItem="DZg-KE-CFD" secondAttribute="bottom" constant="215" id="2P6-Jg-PuW"/>
+                            <constraint firstItem="0ev-vb-Jhi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4iN-9b-9GQ"/>
+                            <constraint firstItem="Mye-cb-Co5" firstAttribute="top" secondItem="LgM-D3-6bd" secondAttribute="bottom" constant="16" id="D1c-uc-UqX"/>
+                            <constraint firstItem="LgM-D3-6bd" firstAttribute="top" secondItem="DZg-KE-CFD" secondAttribute="bottom" constant="36" id="DPy-hD-Qhs"/>
+                            <constraint firstItem="LgM-D3-6bd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OBy-hG-Eym"/>
+                            <constraint firstItem="Mye-cb-Co5" firstAttribute="leading" secondItem="Djj-yj-W9o" secondAttribute="trailing" constant="48.5" id="OR0-oA-5Uh"/>
+                            <constraint firstItem="Djj-yj-W9o" firstAttribute="top" secondItem="LgM-D3-6bd" secondAttribute="bottom" constant="16" id="T95-ua-TEU"/>
+                            <constraint firstItem="Mye-cb-Co5" firstAttribute="trailing" secondItem="DZg-KE-CFD" secondAttribute="trailing" id="UUC-wt-yap"/>
+                            <constraint firstItem="0ev-vb-Jhi" firstAttribute="top" secondItem="Djj-yj-W9o" secondAttribute="bottom" constant="42" id="Vg8-qx-NHu"/>
+                            <constraint firstItem="DZg-KE-CFD" firstAttribute="top" secondItem="YOP-Dl-rlp" secondAttribute="bottom" constant="20" id="ZM9-VS-58k"/>
+                            <constraint firstItem="DZg-KE-CFD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lbe-ME-9bL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="angle" destination="LgM-D3-6bd" id="zv2-Ls-fMr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="35.532233883058474"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle.png" width="590" height="591"/>
+    </resources>
 </document>
